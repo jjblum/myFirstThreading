@@ -1,0 +1,5 @@
+Basic threading example shows the addition race between a for-loop in main() vs. an SDL-based thread while-loop.
+
+There is a parent, general thread class CThread that has as much generality as possible so that wildly different types of subclass threads can be designed. The subclass thread included here is CThread_Add, where an input integer is increased by increments of 1 until the thread is stopped.
+
+The results are highly dependent on the ratio of the sleep durations in the for- and while- loop. Because the thread is slightly slower than the main() for-loop, it may be stopped before it can reach the maximum number of loops possible, given the for-loop's usleep() command.
